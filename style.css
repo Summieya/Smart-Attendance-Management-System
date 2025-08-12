@@ -1,0 +1,277 @@
+/* RESET & BASE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 30px;
+  width: calc(100% - 220px);
+  min-height: 100vh;
+  background-color: #f5f6fa;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Keep paragraph at top */
+.intro {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  max-width: 800px;
+}
+
+
+.form-container {
+  flex: 1; /* fill the remaining vertical space */
+  display: flex;
+  align-items: flex-start; /* form starts just below the paragraph */
+  justify-content: center; /* center horizontally */
+  padding-top: 20px; /* some gap below the paragraph */
+  width: 100%; 
+}
+
+
+.form-box {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+  color: #333;
+  border: 1px solid #e6e6e6;
+}
+
+.form-box h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #1e2f43;
+  letter-spacing: 0.5px;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-box input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.form-box input:focus {
+  border-color: #497aac;
+  outline: none;
+  box-shadow: 0 0 5px rgba(73, 122, 172, 0.3);
+}
+
+.form-box button {
+  background-color: #497aac;
+  color: white;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-box button:hover {
+  background-color: #3a648b;
+}
+
+
+
+.sidebar {
+  width: 220px;
+  background-color: #497aac;
+  color: #fff;
+  padding: 20px 15px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.header-box img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.header-box h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #34495e;
+}
+
+
+.intro {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+}
+
+
+.main-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* TABLES */
+.attendance-table, .viewing-students {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-table th, .attendance-table td,
+.viewing-students th, .viewing-students td {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.attendance-table th, .viewing-students th {
+  background-color: #1e2f43;
+  color: #fff;
+  font-weight: 600;
+}
+
+.attendance-table tr:nth-child(even),
+.viewing-students tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.attendance-table tr:hover,
+.viewing-students tr:hover {
+  background-color: #eef5ff;
+}
+
+
+.print-btn {
+  background-color: #34495e;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+ 
+}
+.submit-btn{
+  background-color: #34495e;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.print-btn:hover, .submit-btn:hover {
+  background-color: #0f253a;
+}
+
+.submit-btn {
+  margin-left: 10px;
+}
+
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-area, #printable-area * {
+    visibility: visible;
+  }
+  #printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .print-btn{
+    display: none;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .form-box {
+    max-width: 100%;
+  }
+}
